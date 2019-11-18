@@ -1,0 +1,30 @@
+from tkinter import *
+from tkinter import messagebox
+from Shapes import Shape
+class shapegui:
+    def __init__(self):
+    
+    window = Tk()
+        window.title("Shape Calculator")
+        label = Label(window,text="Welcome to Shape Calculator App")
+        frame1 = Frame(window)
+        name_label = Label(frame1, text="Enter Length of Square")
+        self.s_1 = StringVar()
+        entry_s_1 = Entry(frame1, textvariable = self.s_1)
+        frame1.pack()
+        name_label.grid(row=1, column=1)
+        entry_s_1.grid(row=1, column=2)
+        cal_btn = Button(window, text = "Calculate Area", command = self.getArea)
+        cal_btn.pack()
+        self.label_area_msg = Label(window, text="")
+        self.label_area_msg.pack()
+        #cal2_btn = Button(window, text = "Calculate Perimeter", command = self.getPerimeter)
+        #cal2_btn.pack()
+        #self.label_per_msg = Label(window, text="")
+        #self.label_per_msg.pack()
+        window.mainloop()
+
+    def getArea(self):
+        area = Square(self.getSide1())
+        area.getArea(float(self.self.s_1.get()))
+        self.label_area_msg["text"] = "The area of the square is " + str(area)
